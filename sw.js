@@ -1,5 +1,5 @@
-const CACHE='facturation-v2';
-const SHELL=['/','/index.html','/dexie.min.js','/jspdf.umd.min.js','/manifest.webmanifest','/icons/icon-192.png','/icons/icon-512.png'];
+const CACHE='facturation-v3';
+const SHELL=['/','/index.html','/dexie.min.js','/jspdf.umd.min.js','/manifest.webmanifest','/fonts/Montserrat-Regular.ttf','/fonts/Montserrat-Bold.ttf','/fonts/Signature.ttf','/icons/icon-192.png','/icons/icon-512.png'];
 self.addEventListener('install',e=>{e.waitUntil(caches.open(CACHE).then(c=>c.addAll(SHELL)));self.skipWaiting()});
 self.addEventListener('activate',e=>{e.waitUntil(caches.keys().then(k=>Promise.all(k.filter(n=>n!==CACHE).map(n=>caches.delete(n)))));self.clients.claim()});
 self.addEventListener('fetch',e=>{
